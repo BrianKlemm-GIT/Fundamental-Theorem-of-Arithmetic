@@ -39,10 +39,10 @@ while again:
                     user_request /= primes[i]
         print(answer)
 
+    with open(PRIMES_FILE, 'w') as f:
+        json.dump(primes, f)
+
     user_answer = input("Do you want to input another number? y/n: ").lower()
     if user_answer == "n":
         again = False
 
-
-with open(PRIMES_FILE, 'w') as f:
-    json.dump(primes, f)
