@@ -15,9 +15,14 @@ except json.JSONDecodeError:
 limit = max(primes)
 again = True
 
+print("\n\n-------------------------------------\n"
+      "--Fundamental Theorem of Arithmetic--\n"
+      "-------------------------------------"
+      )
+
 while again:
     answer = []
-    print(len(primes))
+    print(f"{len(primes)} primes are already calculated. If more are needed they will be calculated and stored.")
     user_request = int(input("What number do you want to know the unique product of primes of?"))
 
     if user_request % 2 == 0:
@@ -45,4 +50,5 @@ while again:
     user_answer = input("Do you want to input another number? y/n: ").lower()
     if user_answer == "n":
         again = False
+    print()
 
