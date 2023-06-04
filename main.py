@@ -37,11 +37,20 @@ while again:
     if prime_finder.prime_finder(user_request):
         print(f"{user_request} is Prime")
     else:
+        i = 0
         while user_request != 1:
-            for i in range(len(primes)):
+            if primes[i] <= user_request:
                 if user_request % primes[i] == 0:
                     answer.append(primes[i])
-                    user_request /= primes[i]
+                    user_request //= primes[i]
+                    # If the remaining user_request is a prime, append it and break the loop.
+                    if user_request in primes:
+                        answer.append(user_request)
+                        user_request = 1
+                else:
+                    i += 1
+            else:
+                break
         print(answer)
 
     with open(PRIMES_FILE, 'w') as f:
